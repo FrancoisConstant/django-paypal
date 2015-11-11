@@ -260,7 +260,7 @@ class PayPalWPP(object):
         # Gather all NVP parameters to pass to a new instance.
         nvp_params = {}
 
-        for key, value in defaults.update(response_params).items():
+        for key, value in dict(defaults, **response_params).items():
             if key.lower() in NVP_FIELDS:
                 nvp_params[str(key.lower())] = value
 
